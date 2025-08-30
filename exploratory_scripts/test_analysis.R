@@ -49,11 +49,11 @@ fd1_comb_plot <- fd1_comb_sum %>%
 fd1_comb_plot
 
 # 2.) Analyze diet by education level
-fd1_comb_sum <- fd1_comb %>%
-  select(SEQN, DR1TPROT)
-  
-  pivot_longer()
-  summarise(mean_protein = mean(DR1TPROT, na.rm = TRUE), .by = DMDEDUC2) %>% 
-  mutate(category = 'Education Level') %>% 
-  arrange(desc(mean_protein))
-fd1_comb_sum
+# fd1_comb_sum <- fd1_comb %>%
+#   select(SEQN, DR1TPROT)
+#   
+#   pivot_longer()
+#   summarise(mean_protein = mean(DR1TPROT, na.rm = TRUE), .by = DMDEDUC2) %>% 
+#   mutate(category = 'Education Level') %>% 
+#   arrange(desc(mean_protein))
+# fd1_comb_sum
