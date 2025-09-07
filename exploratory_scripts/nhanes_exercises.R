@@ -17,7 +17,8 @@ demog_data_1 <- demog_data %>%
   rename(fpl = INDFMPIR, #Ratio of family income to poverty	(0-5)
          age = RIDAGEYR, #Age in years at screening	(0-80)
          gender = RIAGENDR, #Gender (1-2)
-         persWeights = WTINT2YR, #Full sample 2 year interview weight (3293.928267 - 233755.84185)
+         interviewWeights = WTINT2YR, #Full sample 2 year interview weight (3293.928267 - 233755.84185)
+         examWeights = WTMEC2YR, #Full sample 2-year MEC exam weight
          psu = SDMVPSU, #Masked variance pseudo-PSU	(1 to 2)
          strata = SDMVSTRA) #Masked variance pseudo-stratum	(119 to 133)
 
@@ -36,7 +37,6 @@ dim(nhanesAnalysis)
 # Here we use "svydesign" to assign the weights. We will use this new design
 # variable "nhanesDesign" when running our analyses.
 # sampling information: https://www150.statcan.gc.ca/n1/en/catalogue/12-001-X200800210759 
-
 nhanesDesign <- svydesign(
   id = ~psu,
   strata = ~strata,
